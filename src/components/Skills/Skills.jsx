@@ -117,8 +117,8 @@ group-hover:opacity-100 transition duration-300 pointer-events-none"
 
           {/* EMAIL */}
           <p className="text-blue-400 font-medium mb-6 cursor-pointer">
-            <a href="mailto:dev.rohit.kr773@gmail.com">
-              dev.rohit.kr773@gmail.com
+            <a href="mailto:kumarrohit35511@gmail.com">
+              kumarrohit35511@gmail.com
             </a>
           </p>
 
