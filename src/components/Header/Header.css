@@ -1,0 +1,19 @@
+@media(max-width:1000px) and (min-width:0px){
+    #menu{
+        display: none;
+    }
+    #logo{
+        width: 40%;
+    }
+    #contact_btn{
+        width: 40%;
+    }
+    #contact_btn button{
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 15px;
+    }
+}

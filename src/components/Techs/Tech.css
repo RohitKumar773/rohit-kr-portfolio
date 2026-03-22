@@ -1,0 +1,8 @@
+@media(max-width:470px) and (min-width:0px){
+    #skill_box{
+        width: 300px;
+    }
+    #skill_name{
+        width: 150px;
+    }
+}
