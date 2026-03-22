@@ -1,6 +1,6 @@
 import React from "react";
-import portfrolioimg from "../../assets/portfolio.png";
-import Resume from "../../assets/myresume.pdf";
+import portfrolioimg from "../../assets/rohit-img.png";
+import Resume from "../../assets/rohitKumar_Resume.pdf";
 
 function Home() {
   return (

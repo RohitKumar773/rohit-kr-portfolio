@@ -1,16 +1,23 @@
 import React from "react";
-import project1 from "../../assets/macreelcms.png";
+import project1 from "../../assets/lcmis.png";
 import project2 from "../../assets/macreelweb.png";
 import project3 from "../../assets/sms.png";
-import project7 from "../../assets/project_7.jpg";
+import project4 from "../../assets/vakiluncle.png";
 
 function Projects() {
   const projects = [
     {
       image: project1,
-      name: "Macreel CMS",
-      desc: "Mobile CMS app with real-time updates & file handling",
-      live: "https://play.google.com/store/apps/details?id=com.macreel.app&hl=en",
+      name: "LCMIS",
+      desc: "Developed and maintained a Legal Case Management Information System for a government client, streamlining case tracking, document handling, and real-time notifications.",
+      live: "https://play.google.com/store/apps/details?id=com.lcmis.mac.app&hl=en_IN",
+      code: "https://github.com/RohitKumar773",
+    },
+    {
+      image: project4,
+      name: "Vakil Uncle",
+      desc: "Built a full-featured legal service platform connecting clients and advocates with chat, calling, payments, and seamless case management.",
+      live: "https://play.google.com/store/apps/details?id=com.vakiluncle.app",
       code: "https://github.com/RohitKumar773",
     },
     {
@@ -18,7 +25,7 @@ function Projects() {
       name: "Macreel Website",
       desc: "Official company website with modern UI & performance",
       live: "https://macreel.co.in/",
-      code: "https://github.com/RohitKumar773/macreel-website",
+      code: "https://github.com/RohitKumar773",
     },
     {
       image: project3,
@@ -26,13 +33,6 @@ function Projects() {
       desc: "Full-featured system for managing students & data",
       live: "https://swami-vivaknand-school.vercel.app/",
       code: "https://github.com/RohitKumar773/SwamiVivaknandSchoolweb",
-    },
-    {
-      image: project7,
-      name: "EducatorBox",
-      desc: "Education platform with CMS & user management",
-      live: "https://educatorbox.com",
-      code: "https://github.com/RohitKumar773/cms",
     },
   ];
 
@@ -83,11 +83,11 @@ function Projects() {
                       Live
                     </button>
                   </a>
-                  <a href={project.code} target="_blank" rel="noreferrer">
+                  {/* <a href={project.code} target="_blank" rel="noreferrer">
                     <button className="px-4 py-1.5 text-xs font-semibold rounded border border-white/20 hover:bg-white/10 transition-colors">
                       Code
                     </button>
-                  </a>
+                  </a> */}
                 </div>
               </div>
 

@@ -17,28 +17,45 @@ import linkedin from "../../assets/linkedin.png";
 import insta from "../../assets/insta.png";
 import github from "../../assets/github.png";
 import twitter from "../../assets/twitter.png";
+import android from "../../assets/android.png";
+import ios from "../../assets/ios.png";
+import node from "../../assets/node.png";
+import express from "../../assets/express.png";
+import figma from "../../assets/figma.png";
+import adobe from "../../assets/adobe.png";
+import mongo from "../../assets/mongo.png";
 
 function Skills() {
   const skills = [
+    // Mobile Development Core
+    { name: "React Native", img: react },
+    { name: "Android Dev", img: android },
+    { name: "iOS Dev", img: ios },
+    { name: "Ionic", img: ionic },
+
+    // Web/Frontend Skills
     { name: "Angular", img: angular },
     { name: "React JS", img: react },
     { name: "TypeScript", img: ts },
     { name: "JavaScript", img: js },
-    { name: "Tailwind CSS", img: tailwind },
     { name: "HTML", img: html },
-    { name: "CSS", img: css },
+    { name: "CSS / SCSS", img: css },
+    { name: "Tailwind CSS", img: tailwind },
     { name: "Bootstrap", img: bootstrap },
 
-    { name: "React Native", img: react },
-    { name: "Ionic", img: ionic },
-    { name: "Android Dev", img: react },
-    { name: "iOS Dev", img: react },
-
-    { name: "Node.js", img: react },
+    // Backend / Database
+    { name: "Node.js", img: node },
+    { name: "Express", img: express },
     { name: "MySQL", img: mysql },
-    { name: "REST APIs", img: postman },
+    { name: "MongoDB", img: mongo },
+
+    // Tools / Version Control / API
     { name: "Git & GitHub", img: git },
     { name: "Postman", img: postman },
+
+    // Design / UI
+    { name: "Figma", img: figma },
+    { name: "Adobe Photoshop", img: adobe },
   ];
 
   return (
@@ -85,6 +102,7 @@ group-hover:opacity-100 transition duration-300 pointer-events-none"
           className="mt-20 text-center bg-white/5 border border-white/10 
           rounded-2xl p-8 backdrop-blur-md relative overflow-hidden"
           data-aos="fade-up"
+          id="contact"
         >
           {/* Glow */}
           <div className="absolute w-72 h-72 bg-blue-500/20 blur-3xl rounded-full left-1/2 -translate-x-1/2 top-0 pointer-events-none"></div>

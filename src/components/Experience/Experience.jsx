@@ -4,24 +4,24 @@ function Experience() {
   const data = [
     {
       year: "Feb 2025 - Present",
-      title: "Angular / Ionic Developer",
+      title: "Software Developer",
       company: "Macreel Infosoft Pvt. Ltd.",
       desc: "Working on scalable mobile & web apps, CMS mobile app, and school management system.",
-      tech: ["Angular", "Ionic", "TypeScript", "MySQL"],
+      tech: ["React Native", "Angular", "TypeScript", "JavaScript"],
     },
     {
-      year: "2024",
-      title: "React Native Developer",
+      year: "2023 - 2024",
+      title: "Freelancing",
       company: "Personal Projects",
-      desc: "Built Vakil Uncle app with chat, calling, payments & notifications.",
-      tech: ["React Native", "Firebase", "Redux"],
+      desc: "Built and delivered a School Management System to a real client, handling admissions, attendance, exam management, inventory, and overall administrative operations efficiently.",
+      tech: ["Angular", "PHP", "MySql"],
     },
     {
-      year: "2023",
-      title: "Frontend Developer",
-      company: "Learning Phase",
+      year: "Dec 2022 - June 2023",
+      title: "Frontend Developer Internship",
+      company: "Green Soft",
       desc: "Learned Angular, React, TypeScript and built multiple real-world projects.",
-      tech: ["HTML/CSS", "JS", "Tailwind"],
+      tech: ["HTML/CSS/JS", "Typescript", "Angular", "React"],
     },
   ];
 
