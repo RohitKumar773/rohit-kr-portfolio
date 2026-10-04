@@ -1,185 +1,149 @@
-import React from "react";
+import React, { useState } from "react";
+import { SKILLS_DATA, ALL_SKILLS } from "../../data/portfolioData";
+import { SparklesIcon, DatabaseIcon, CodeIcon, SmartphoneIcon } from "../Icons";
 
-import angular from "../../assets/skill06.png";
-import ionic from "../../assets/skill13.png";
-import react from "../../assets/skill05.png";
-import ts from "../../assets/skill08.png";
-import js from "../../assets/skill03.png";
-import tailwind from "../../assets/skill07.png";
-import html from "../../assets/skill01.png";
-import css from "../../assets/skill02.png";
-import bootstrap from "../../assets/skill04.png";
-import mysql from "../../assets/skill12.png";
-import git from "../../assets/git.png";
-import postman from "../../assets/postman.png";
+export default function Skills() {
+  const [activeTab, setActiveTab] = useState("all");
 
-import linkedin from "../../assets/linkedin.png";
-import insta from "../../assets/insta.png";
-import github from "../../assets/github.png";
-import twitter from "../../assets/twitter.png";
-import android from "../../assets/android.png";
-import ios from "../../assets/ios.png";
-import node from "../../assets/node.png";
-import express from "../../assets/express.png";
-import figma from "../../assets/figma.png";
-import adobe from "../../assets/adobe.png";
-import mongo from "../../assets/mongo.png";
-
-function Skills() {
-  const skills = [
-    // Mobile Development Core
-    { name: "React Native", img: react },
-    { name: "Android Dev", img: android },
-    { name: "iOS Dev", img: ios },
-    { name: "Ionic", img: ionic },
-
-    // Web/Frontend Skills
-    { name: "Angular", img: angular },
-    { name: "React JS", img: react },
-    { name: "TypeScript", img: ts },
-    { name: "JavaScript", img: js },
-    { name: "HTML", img: html },
-    { name: "CSS / SCSS", img: css },
-    { name: "Tailwind CSS", img: tailwind },
-    { name: "Bootstrap", img: bootstrap },
-
-    // Backend / Database
-    { name: "Node.js", img: node },
-    { name: "Express", img: express },
-    { name: "MySQL", img: mysql },
-    { name: "MongoDB", img: mongo },
-
-    // Tools / Version Control / API
-    { name: "Git & GitHub", img: git },
-    { name: "Postman", img: postman },
-
-    // Design / UI
-    { name: "Figma", img: figma },
-    { name: "Adobe Photoshop", img: adobe },
+  const categories = [
+    { id: "all", label: "All Skills" },
+    { id: "Mobile Engineering", label: "Mobile Dev" },
+    { id: "Languages & Frameworks", label: "Languages & Web" },
+    { id: "Databases & Local Storage", label: "Databases & Storage" },
+    { id: "Styling & UI Systems", label: "Styling Systems" },
+    { id: "Tools, VCS & CI/CD", label: "Tools & DevOps" },
   ];
+
+  const displayedSkills =
+    activeTab === "all"
+      ? ALL_SKILLS
+      : SKILLS_DATA.find((c) => c.category === activeTab)?.skills.map((s) => ({
+          name: s.name,
+          img: s.img,
+          tag: s.badge || s.level,
+        })) || [];
 
   return (
     <section
       id="skills"
-      className="w-full bg-gradient-to-b from-black via-[#0f172a] to-black text-white px-4 sm:px-6 md:px-10 py-20"
+      className="relative w-full py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 via-[#0B0F19] to-slate-950 text-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        {/* HEADING */}
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-14">
-          My <span className="text-blue-500">Tech Stack</span>
-        </h1>
+      {/* Background Subtle Gradient Spheres */}
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-cyan-600/10 rounded-full blur-[140px] pointer-events-none"></div>
 
-        {/* SKILLS GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          {skills.map((skill, index) => (
+      <div className="max-w-7xl mx-auto space-y-12">
+        {/* SECTION HEADER */}
+        <div data-aos="fade-up" className="text-center max-w-3xl mx-auto space-y-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">
+            // Technical Stack
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+            Specialized <span className="text-gradient">Tech Stack</span>
+          </h2>
+          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+            Targeted toolkit perfected for cross-platform mobile engineering, offline databases, and performant user interfaces.
+          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full mt-4"></div>
+        </div>
+
+        {/* CATEGORY FILTER TABS */}
+        <div data-aos="fade-up" className="flex flex-wrap items-center justify-center gap-2">
+          {categories.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-4 py-2 text-xs font-semibold rounded-full transition-all duration-200 ${
+                activeTab === tab.id
+                  ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30 scale-105"
+                  : "bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-slate-800"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* SKILLS CARDS GRID */}
+        <div
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5"
+        >
+          {displayedSkills.map((skill, index) => (
             <div
               key={index}
-              data-aos="zoom-in"
-              data-aos-delay={index * 50}
-              className="group relative z-10 flex flex-col items-center justify-center 
-bg-white/5 border border-white/10 rounded-xl p-5 
-hover:scale-105 hover:border-blue-500/40 
-transition-all duration-300 overflow-hidden cursor-pointer"
+              className="group relative flex flex-col items-center justify-center p-5 rounded-2xl bg-slate-900/50 hover:bg-slate-900/90 border border-slate-800/80 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer"
             >
-              <div
-                className="absolute w-20 h-20 bg-blue-500/20 blur-2xl opacity-0 
-group-hover:opacity-100 transition duration-300 pointer-events-none"
-              ></div>
+              {/* Radial Hover Glow */}
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
-              <img
-                src={skill.img}
-                alt={skill.name}
-                className="w-12 h-12 object-contain mb-3 relative z-10"
-              />
+                {/* Skill Icon */}
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <img
+                    src={skill.img}
+                    alt={skill.name}
+                    className="max-w-full max-h-full object-contain filter drop-shadow-md rounded-lg"
+                  />
+                </div>
 
-              <p className="text-sm text-center relative z-10">{skill.name}</p>
+                {/* Skill Title */}
+                <p className="text-xs sm:text-sm font-bold text-white text-center group-hover:text-blue-400 transition-colors">
+                  {skill.name}
+                </p>
+
+                {/* Tag / Category Badge */}
+                {skill.tag && (
+                  <span className="mt-2 text-[10px] font-mono font-medium text-slate-400 bg-slate-800/90 px-2 py-0.5 rounded-md border border-slate-700/60 group-hover:text-slate-200">
+                    {skill.tag}
+                  </span>
+                )}
+              </div>
+          ))}
+        </div>
+
+        {/* DETAILED CATEGORY CARDS ACCORDION/SECTION */}
+        <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
+          {SKILLS_DATA.map((cat, idx) => (
+            <div
+              key={idx}
+              className="bg-slate-900/40 border border-slate-800/90 rounded-2xl p-5 hover:border-blue-500/30 transition duration-300"
+            >
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                  {cat.category}
+                </h3>
+                <span className="text-[11px] font-mono text-slate-500">
+                  {cat.skills.length} skills
+                </span>
+              </div>
+
+              <div className="space-y-2.5">
+                {cat.skills.map((s, sIdx) => (
+                  <div
+                    key={sIdx}
+                    className="flex items-center justify-between text-xs py-1 px-2 rounded-lg hover:bg-slate-800/50 transition"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <img
+                        src={s.img}
+                        alt={s.name}
+                        className="w-5 h-5 object-contain rounded"
+                      />
+                      <span className="font-medium text-slate-200">{s.name}</span>
+                    </div>
+                    <span className="px-2 py-0.5 text-[10px] font-mono font-semibold rounded bg-slate-800 text-blue-400 border border-slate-700">
+                      {s.badge || s.level}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
 
-        {/* CONTACT SECTION */}
-        <div
-          className="mt-20 text-center bg-white/5 border border-white/10 
-          rounded-2xl p-8 backdrop-blur-md relative overflow-hidden"
-          data-aos="fade-up"
-          id="contact"
-        >
-          {/* Glow */}
-          <div className="absolute w-72 h-72 bg-blue-500/20 blur-3xl rounded-full left-1/2 -translate-x-1/2 top-0 pointer-events-none"></div>
-
-          <h2 className="text-2xl font-semibold mb-3">
-            Let’s Build Something Amazing 🚀
-          </h2>
-
-          <p className="text-gray-400 mb-6 text-sm sm:text-base">
-            Have a project idea or opportunity? Let’s connect and make it real.
-          </p>
-
-          {/* EMAIL */}
-          <p className="text-blue-400 font-medium mb-6 cursor-pointer">
-            <a href="mailto:kumarrohit35511@gmail.com">
-              kumarrohit35511@gmail.com
-            </a>
-          </p>
-
-          {/* SOCIAL ICONS */}
-          <div className="flex justify-center gap-6">
-            <a
-              href="https://www.linkedin.com/in/rohit-kumar-18a749245/"
-              target="_blank"
-              rel="noreferrer"
-              className="cursor-pointer transform transition hover:scale-110"
-            >
-              <img
-                src={linkedin}
-                alt="LinkedIn"
-                className="w-8 h-8 relative z-10"
-              />
-            </a>
-
-            <a
-              href="https://x.com/RohitKu84499807"
-              target="_blank"
-              rel="noreferrer"
-              className="cursor-pointer transform transition hover:scale-110"
-            >
-              <img
-                src={twitter}
-                alt="Twitter"
-                className="w-8 h-8 relative z-10"
-              />
-            </a>
-
-            <a
-              href="https://github.com/RohitKumar773"
-              target="_blank"
-              rel="noreferrer"
-              className="cursor-pointer transform transition hover:scale-110"
-            >
-              <img
-                src={github}
-                alt="GitHub"
-                className="w-8 h-8 relative z-10"
-              />
-            </a>
-
-            <a
-              href="https://www.instagram.com/__r_o_h_i_t__kumar__/"
-              target="_blank"
-              rel="noreferrer"
-              className="cursor-pointer transform transition hover:scale-110"
-            >
-              <img
-                src={insta}
-                alt="Instagram"
-                className="w-8 h-8 relative z-10"
-              />
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );
 }
-
-export default Skills;

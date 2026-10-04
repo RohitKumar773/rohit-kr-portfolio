@@ -1,19 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233b82f6'><path d='M12 2L2 7l10 5 10-5-10-5zm0 9l-10-5v8l10 5 10-5V6l-10 5z'/></svg>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohit Kumar</title>
+  <meta name="theme-color" content="#030712" />
+  <title>Rohit Kumar | React Native & Mobile Application Developer</title>
+  <meta name="description" content="Portfolio of Rohit Kumar - Results-driven React Native Mobile Developer specializing in high-performance iOS and Android apps, payment integrations, real-time chat, and clean architecture." />
+  <meta name="keywords" content="Rohit Kumar, React Native Developer, Mobile App Developer, iOS, Android, TypeScript, SQLite, Redux Toolkit" />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 
-<body>
+<body class="bg-[#030712] text-slate-100 font-sans selection:bg-blue-600/30 selection:text-blue-300 antialiased overflow-x-hidden">
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.AOS) {
+        AOS.init({
+          duration: 700,
+          once: true,
+          offset: 50,
+          easing: 'ease-out-cubic'
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
